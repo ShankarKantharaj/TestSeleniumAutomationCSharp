@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver\WebDriver.cs" />
+    <Compile Include="ElementLocator\Element.cs" />
+    <Compile Include="ElementLocator\ElementLocator.cs" />
+    <Compile Include="ElementLocator\IElementLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
