@@ -48,10 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver\WebDriver.cs" />
+    <Compile Include="ElementLocator\ControlExtensionMethods.cs" />
     <Compile Include="ElementLocator\Element.cs" />
     <Compile Include="ElementLocator\ElementLocator.cs" />
     <Compile Include="ElementLocator\IElementLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Common.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

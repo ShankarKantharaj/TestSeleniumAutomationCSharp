@@ -6,6 +6,7 @@ using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Test.Selenium.Automation.Driver;
+using Test.Selenium.Automation.Utilities;
 
 namespace Test.Selenium.Automation.ElementLocator
 {
@@ -26,7 +27,7 @@ namespace Test.Selenium.Automation.ElementLocator
 
         public T FindElement<T>(string locatortype, string locatorValue) where T : IElement, new()
         {
-            var locator = GetLocator(locatortype, locatorValue);
+            var locator = Common.GetLocator(locatortype, locatorValue);
 
             var webElement = FindElement(locator);
             if (webElement == null)
@@ -38,7 +39,7 @@ namespace Test.Selenium.Automation.ElementLocator
 
         public List<T> FindElements<T>(string locatorType, string locatorValue) where T : IElement, new()
         {
-            var locator = GetLocator(locatorType, locatorValue);
+            var locator = Common.GetLocator(locatorType, locatorValue);
             var webElements = FindElements(locator);
 
             return webElements == null ? null : webElements.Select(element => new T { WebElement = element }).ToList();
@@ -77,47 +78,6 @@ namespace Test.Selenium.Automation.ElementLocator
                 return null;
             }
 
-        }
-
-        private static By GetLocator(string locatortype, string locatorValue)
-        {
-            By locatorType;
-
-            switch (locatortype)
-            {
-                case "id":
-                    locatorType = By.Id(locatorValue);
-                    break;
-
-                case "xpath":
-                    locatorType = By.XPath(locatorValue);
-                    break;
-
-                case "name":
-                    locatorType = By.Name(locatorValue);
-                    break;
-
-                case "classname":
-                    locatorType = By.ClassName(locatorValue);
-                    break;
-
-                case "tagname":
-                    locatorType = By.TagName(locatorValue);
-                    break;
-
-                case "cssselector":
-                    locatorType = By.CssSelector(locatorValue);
-                    break;
-
-                case "linktext":
-                    locatorType = By.LinkText(locatorValue);
-                    break;
-
-                default:
-                    throw new Exception(string.Format("Locator {0} is not valid", locatortype));
-            }
-
-            return locatorType;
         }
 
         #endregion

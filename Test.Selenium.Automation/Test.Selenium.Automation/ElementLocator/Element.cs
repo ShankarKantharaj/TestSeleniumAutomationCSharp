@@ -1,19 +1,36 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using Test.Selenium.Automation.Driver;
 
 namespace Test.Selenium.Automation.ElementLocator
 {
     public interface IElement
     {
         IWebElement WebElement { get; set; }
+
+        void Click();
+        void DoubleClick(Element element);
     }
 
     public class Element : IElement
     {
+        private readonly Actions _actions;
+
         public IWebElement WebElement { get; set; }
+
+        public Element()
+        {
+            _actions = new Actions(WebDriver.WebDriverInstance);
+        }
 
         public void Click()
         {
             WebElement.Click();
+        }
+
+        public void DoubleClick(Element element)
+        {
+            _actions.DoubleClick(element.WebElement);
         }
 
         public bool IsDisplayed()
@@ -21,7 +38,7 @@ namespace Test.Selenium.Automation.ElementLocator
             return WebElement.Displayed;
         }
 
-        public string Text
+        public string GetTextAttributeValue
         {
             get
             {
