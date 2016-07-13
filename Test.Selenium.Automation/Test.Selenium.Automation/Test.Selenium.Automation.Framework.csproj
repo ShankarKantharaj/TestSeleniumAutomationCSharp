@@ -49,11 +49,16 @@
   <ItemGroup>
     <Compile Include="Driver\WebDriver.cs" />
     <Compile Include="ElementLocator\ControlExtensionMethods.cs" />
-    <Compile Include="ElementLocator\Element.cs" />
+    <Compile Include="UiControlInterfaces\IHtmlControl.cs" />
+    <Compile Include="UiControls\HtmlControl.cs" />
     <Compile Include="ElementLocator\ElementLocator.cs" />
     <Compile Include="ElementLocator\IElementLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UiControlInterfaces\ITextBox.cs" />
+    <Compile Include="UiControls\Button.cs" />
+    <Compile Include="UiControls\TextBox.cs" />
     <Compile Include="Utilities\Common.cs" />
+    <Compile Include="UiControlInterfaces\IButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

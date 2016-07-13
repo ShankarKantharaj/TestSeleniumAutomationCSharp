@@ -1,24 +1,17 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using Test.Selenium.Automation.Driver;
+using Test.Selenium.Automation.UiControlInterfaces;
 
-namespace Test.Selenium.Automation.ElementLocator
+namespace Test.Selenium.Automation.UiControls
 {
-    public interface IElement
-    {
-        IWebElement WebElement { get; set; }
-
-        void Click();
-        void DoubleClick(Element element);
-    }
-
-    public class Element : IElement
+    public class HtmlControl : IHtmlControl
     {
         private readonly Actions _actions;
 
         public IWebElement WebElement { get; set; }
 
-        public Element()
+        public HtmlControl()
         {
             _actions = new Actions(WebDriver.WebDriverInstance);
         }
@@ -28,7 +21,7 @@ namespace Test.Selenium.Automation.ElementLocator
             WebElement.Click();
         }
 
-        public void DoubleClick(Element element)
+        public void DoubleClick(HtmlControl element)
         {
             _actions.DoubleClick(element.WebElement);
         }
@@ -38,14 +31,10 @@ namespace Test.Selenium.Automation.ElementLocator
             return WebElement.Displayed;
         }
 
-        public string GetTextAttributeValue
+        public string GetTextAttributeValue()
         {
-            get
-            {
-                var text = WebElement.Text;
-                return text;
-            }
-
+            var text = WebElement.Text;
+            return text;
         }
 
         public string GetAttributeValue(string attribute)

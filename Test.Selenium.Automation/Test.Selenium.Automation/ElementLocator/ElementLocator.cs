@@ -6,6 +6,7 @@ using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Test.Selenium.Automation.Driver;
+using Test.Selenium.Automation.UiControlInterfaces;
 using Test.Selenium.Automation.Utilities;
 
 namespace Test.Selenium.Automation.ElementLocator
@@ -25,7 +26,7 @@ namespace Test.Selenium.Automation.ElementLocator
             _timeOut = TimeSpan.FromMinutes(Convert.ToInt32(ConfigurationManager.AppSettings["WaitTimeInMinutes"]));
         }
 
-        public T FindElement<T>(string locatortype, string locatorValue) where T : IElement, new()
+        public T FindElement<T>(string locatortype, string locatorValue) where T : IHtmlControl, new()
         {
             var locator = Common.GetLocator(locatortype, locatorValue);
 
@@ -37,7 +38,7 @@ namespace Test.Selenium.Automation.ElementLocator
             return element;
         }
 
-        public List<T> FindElements<T>(string locatorType, string locatorValue) where T : IElement, new()
+        public List<T> FindElements<T>(string locatorType, string locatorValue) where T : IHtmlControl, new()
         {
             var locator = Common.GetLocator(locatorType, locatorValue);
             var webElements = FindElements(locator);

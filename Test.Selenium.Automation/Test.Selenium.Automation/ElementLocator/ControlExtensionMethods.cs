@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenQA.Selenium.Interactions;
 using Test.Selenium.Automation.Driver;
+using Test.Selenium.Automation.UiControlInterfaces;
+using Test.Selenium.Automation.UiControls;
 using Test.Selenium.Automation.Utilities;
 
 namespace Test.Selenium.Automation.ElementLocator
@@ -16,7 +18,7 @@ namespace Test.Selenium.Automation.ElementLocator
             Actions = new Actions(WebDriver.WebDriverInstance);
         }
 
-        public static void DragDrop(this Element source, Element destination)
+        public static void DragDrop(this HtmlControl source, HtmlControl destination)
         {
             Actions.DragAndDrop(source.WebElement, destination.WebElement);
         }
@@ -26,7 +28,7 @@ namespace Test.Selenium.Automation.ElementLocator
             //control.SetText(Keys.Enter);
         }
 
-        public static T FindElement<T>(this Element control, string locatorType, string locatorValue) where T : IElement, new()
+        public static T FindElement<T>(this HtmlControl control, string locatorType, string locatorValue) where T : IHtmlControl, new()
         {
             var locator = Common.GetLocator(locatorType, locatorValue);
 
@@ -45,7 +47,7 @@ namespace Test.Selenium.Automation.ElementLocator
             
         }
 
-        public static IReadOnlyCollection<T> FindElements<T>(this Element control, string locatorType, string locatorValue) where T : IElement, new()
+        public static IReadOnlyCollection<T> FindElements<T>(this HtmlControl control, string locatorType, string locatorValue) where T : IHtmlControl, new()
         {
             var elements = new List<T>();
             var locator = Common.GetLocator(locatorType, locatorValue);
