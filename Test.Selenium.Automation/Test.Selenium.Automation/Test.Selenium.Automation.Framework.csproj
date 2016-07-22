@@ -47,6 +47,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataUtilities\SqlUtility.cs" />
+    <Compile Include="DataUtilities\XmlUtility.cs" />
     <Compile Include="Driver\WebDriver.cs" />
     <Compile Include="ElementLocator\ControlExtensionMethods.cs" />
     <Compile Include="UiControlInterfaces\IHtmlControl.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="UiControlInterfaces\ITextBox.cs" />
     <Compile Include="UiControls\Button.cs" />
     <Compile Include="UiControls\TextBox.cs" />
+    <Compile Include="Utilities\BrowserUtilities.cs" />
     <Compile Include="Utilities\Common.cs" />
     <Compile Include="UiControlInterfaces\IButton.cs" />
   </ItemGroup>

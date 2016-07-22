@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using Test.Selenium.Automation.Driver;
 using Test.Selenium.Automation.UiControlInterfaces;
@@ -23,9 +24,9 @@ namespace Test.Selenium.Automation.ElementLocator
             Actions.DragAndDrop(source.WebElement, destination.WebElement);
         }
 
-        public static void KeyEnterinTextBox(/*this TextBox control*/)
+        public static void KeyInEnter(this TextBox control)
         {
-            //control.SetText(Keys.Enter);
+            control.SetText(Keys.Enter);
         }
 
         public static T FindElement<T>(this HtmlControl control, string locatorType, string locatorValue) where T : IHtmlControl, new()

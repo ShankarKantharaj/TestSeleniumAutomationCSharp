@@ -199,6 +199,12 @@ namespace Test.Selenium.Automation.Driver
 
         #endregion
 
+        public static void Dispose()
+        {
+            WebDriverInstance.Quit();
+            WebDriverInstance.Dispose();
+        }
+
         private static void GetAppSettings()
         {
             #region Environment App settings
