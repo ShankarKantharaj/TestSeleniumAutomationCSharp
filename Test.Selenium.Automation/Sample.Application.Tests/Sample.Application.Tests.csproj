@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{58634BB0-2D0D-4DE4-BB1A-705DDA3C3E7A}</ProjectGuid>
+    <ProjectGuid>{E2495578-FFCE-4527-80AD-4EA2E4ADAD35}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Test.Selenium.Automation</RootNamespace>
-    <AssemblyName>Test.Selenium.Automation</AssemblyName>
+    <RootNamespace>Sample.Application.Tests</RootNamespace>
+    <AssemblyName>Sample.Application.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,37 +30,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.core">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.2.53.1\lib\net40\WebDriver.dll</HintPath>
-    </Reference>
-    <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.2.53.1\lib\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.2.1.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataUtilities\SqlUtility.cs" />
-    <Compile Include="Driver\WebDriver.cs" />
-    <Compile Include="ElementLocator\ControlExtensionMethods.cs" />
-    <Compile Include="UiControlInterfaces\IHtmlControl.cs" />
-    <Compile Include="UiControls\HtmlControl.cs" />
-    <Compile Include="ElementLocator\ElementLocator.cs" />
-    <Compile Include="ElementLocator\IElementLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UiControlInterfaces\ITextBox.cs" />
-    <Compile Include="UiControls\Button.cs" />
-    <Compile Include="UiControls\TextBox.cs" />
-    <Compile Include="Utilities\BrowserUtilities.cs" />
-    <Compile Include="Utilities\Common.cs" />
-    <Compile Include="UiControlInterfaces\IButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Test.Sample.Application.Library\Test.Sample.Application.Library.csproj">
+      <Project>{f5d69564-afd4-40b8-a351-6cce51c9ef47}</Project>
+      <Name>Test.Sample.Application.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

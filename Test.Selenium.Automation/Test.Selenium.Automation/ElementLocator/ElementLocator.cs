@@ -11,7 +11,7 @@ using Test.Selenium.Automation.Utilities;
 
 namespace Test.Selenium.Automation.ElementLocator
 {
-    public class ElementLocator
+    public class ElementLocator : IElementLocator
     {
         #region variables
 
@@ -44,6 +44,11 @@ namespace Test.Selenium.Automation.ElementLocator
             var webElements = FindElements(locator);
 
             return webElements == null ? null : webElements.Select(element => new T { WebElement = element }).ToList();
+        }
+
+        public void SwitchToFrame(IHtmlControl control)
+        {
+            _driver.SwitchTo().Frame(control.WebElement);
         }
 
         #region private Methods

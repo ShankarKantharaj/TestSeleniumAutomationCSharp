@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<HomePage>
+  <Selectfile>
+    <id>clientUpload</id>
+  </Selectfile>
+
+  <Convertto>
+    <xpath>//a[@data-toggle = 'dropdown']</xpath>
+  </Convertto>
+
+  <Converttooptions>
+    <xpath>//a[@data-outputformat= '{0}']</xpath>
+  </Converttooptions>
+
+  <Convert>
+    <id>convertButton</id>
+  </Convert>
+
+  <SelectFilePopup>
+    <id>rufous-sandbox</id>
+  </SelectFilePopup>
+
+  <SelectfilePopupOkButton>
+    <xpath>//button[@data-bb-handler = 'ok']</xpath>
+  </SelectfilePopupOkButton>
+</HomePage>
